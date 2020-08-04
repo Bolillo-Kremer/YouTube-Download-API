@@ -11,7 +11,21 @@ const port = process.env.PORT || 5000;
 
 //Builds Server
 const app = express();
-app.use(cors());
+
+const corsOptions = {
+    origin: '*',
+    optionsSuccessStatus: 200,
+
+}
+app.use(cors(corsOptions));
+app.use(express.json());
+app.use(function (req, res, next) {
+    res.setHeader("Access-Control-Allow-Origin", "*");
+    res.setHeader('Access-Control-Allow-Methods', '*');
+    res.setHeader("Access-Control-Allow-Headers", "*");
+    next();
+});
+
 const server = http.createServer(app);
 
 async function getVideoData(download) {
