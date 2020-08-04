@@ -11,10 +11,7 @@ const port = process.env.PORT || 5000;
 
 //Builds Server
 const app = express();
-app.use(cors(), (req, res, next) => {
-    res.header('Access-Control-Allow-Origin', '*');
-    next();
-});
+app.use(cors());
 const server = http.createServer(app);
 
 async function getVideoData(download) {
@@ -66,6 +63,13 @@ function getPlaylistDataFromAPI(playlist) {
     })
 }
 
+app.options('/GetVideo', function (req, res) {
+    res.setHeader("Access-Control-Allow-Origin", "*");
+    res.setHeader('Access-Control-Allow-Methods', '*');
+    res.setHeader("Access-Control-Allow-Headers", "*");
+    res.end();
+});
+
 app.post('/GetVideo', (req, res) => {
     req.on('data', async (data) => {
         data = data.toString('ascii');
@@ -85,6 +89,13 @@ app.post('/GetVideo', (req, res) => {
         } 
     })
 })
+
+app.options('/PlaylistInfo', function (req, res) {
+    res.setHeader("Access-Control-Allow-Origin", "*");
+    res.setHeader('Access-Control-Allow-Methods', '*');
+    res.setHeader("Access-Control-Allow-Headers", "*");
+    res.end();
+});
 
 app.post('/PlaylistInfo', (req, res) => {
     req.on('data', async (data) => {
