@@ -1,0 +1,30 @@
+{
+  "name": "bolillokremer",
+  "version": "1.0.0",
+  "description": "Node API",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "bolillo",
+    "kremer"
+  ],
+  "author": "Bolillo Kremer",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "fs": "0.0.1-security",
+    "https": "^1.0.0",
+    "node-fetch": "^2.6.0",
+    "stream-to-array": "^2.3.0",
+    "ytdl-core": "^3.2.0",
+    "ytpl": "^0.2.3"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  }
+}
